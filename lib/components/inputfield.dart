@@ -14,20 +14,7 @@ class InputField extends StatefulWidget {
   final int maxLine;
   final int minLine;
 
-  const InputField(
-      {Key? key,
-      required this.textEditingController,
-      this.label,
-      this.height,
-      this.width = double.infinity,
-      this.paddingHorizontal = 20,
-      this.hintText,
-      this.trailingIcon,
-      this.trailingFunction,
-      this.isExpand = false,
-      this.minLine = 1,
-      this.maxLine = 1})
-      : super(key: key);
+  const InputField({Key? key, required this.textEditingController, this.label, this.height, this.width = double.infinity, this.paddingHorizontal = 20, this.hintText, this.trailingIcon, this.trailingFunction, this.isExpand = false, this.minLine = 1, this.maxLine = 1}) : super(key: key);
 
   @override
   _InputFieldState createState() => _InputFieldState();
@@ -51,17 +38,14 @@ class _InputFieldState extends State<InputField> {
                 style: const TextStyle(color: ThemeColors.primaryLight),
                 controller: widget.textEditingController,
                 decoration: InputDecoration(
-                    focusedBorder: const UnderlineInputBorder(
-                        borderSide: BorderSide(color: ThemeColors.primary)),
+                    focusedBorder: const UnderlineInputBorder(borderSide: BorderSide(color: ThemeColors.primary)),
                     enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: ThemeColors.primaryLight),
                     ),
                     hintText: widget.hintText,
-                    hintStyle:
-                        const TextStyle(color: ThemeColors.primaryLight2),
+                    hintStyle: const TextStyle(color: ThemeColors.primaryLight2),
                     labelText: widget.label,
-                    labelStyle:
-                        const TextStyle(color: ThemeColors.primaryLight2)),
+                    labelStyle: const TextStyle(color: ThemeColors.primaryLight2)),
               ),
             ),
             widget.trailingIcon != null
@@ -70,10 +54,7 @@ class _InputFieldState extends State<InputField> {
                       padding: const EdgeInsets.symmetric(horizontal: 14),
                       child: widget.trailingIcon,
                     ),
-                    onTap: () => {
-                      if (widget.trailingFunction != null)
-                        widget.trailingFunction!()
-                    },
+                    onTap: () => {if (widget.trailingFunction != null) widget.trailingFunction!()},
                   )
                 : Container(),
           ],

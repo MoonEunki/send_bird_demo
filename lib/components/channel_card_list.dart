@@ -36,20 +36,15 @@ class _ChannelCardState extends State<ChannelCardList> {
           child: GestureDetector(
             onTap: () {
               _channel.setCurrentGroupChannel(widget.groupChannel[index]);
-              Get.toNamed("/ChatRoomRoute",
-                      arguments: [widget.groupChannel[index]])!
-                  .then(
+              Get.toNamed("/ChatRoomRoute", arguments: [widget.groupChannel[index]])!.then(
                 (_) => HomeRoute.globalKey.currentState!.refreshPage(),
               );
             },
             child: Card(
               child: ListTile(
-                leading: widget.groupChannel[index].coverUrl != null
-                    ? Image.network(widget.groupChannel[index].coverUrl!)
-                    : null,
+                leading: widget.groupChannel[index].coverUrl != null ? Image.network(widget.groupChannel[index].coverUrl!) : null,
                 title: Text(widget.groupChannel[index].name ?? "[BLANK]"),
-                subtitle:
-                    Text(widget.groupChannel[index].lastMessage?.message ?? ""),
+                subtitle: Text(widget.groupChannel[index].lastMessage?.message ?? ""),
               ),
             ),
           ),

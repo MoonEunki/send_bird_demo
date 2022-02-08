@@ -15,8 +15,7 @@ abstract class BaseChannel {
   Future<List<BaseMessage>?> retrievePreviousMessages(String channelURL);
 
   // Creates Group Channel
-  Future<void> createGroupChannel(
-      {required List<String> userIds, required List<String> operatorUserIds});
+  Future<void> createGroupChannel({required List<String> userIds, required List<String> operatorUserIds});
 
   // set current selected group channel
   void setCurrentGroupChannel(GroupChannel channel);
@@ -29,9 +28,7 @@ class ChannelController extends GetxController implements BaseChannel {
   late GroupChannel _currentChannel;
 
   @override
-  Future<void> createGroupChannel(
-      {required List<String> userIds,
-      required List<String> operatorUserIds}) async {
+  Future<void> createGroupChannel({required List<String> userIds, required List<String> operatorUserIds}) async {
     try {
       final params = GroupChannelParams()
         ..userIds = userIds
@@ -99,8 +96,7 @@ class ChannelController extends GetxController implements BaseChannel {
     try {
       final params = UserMessageParams(message: message);
 
-      final preMessage =
-          _currentChannel.sendUserMessage(params, onCompleted: (message, err) {
+      final preMessage = _currentChannel.sendUserMessage(params, onCompleted: (message, err) {
         // If error is null and message is sent successfully,
       });
 

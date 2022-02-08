@@ -32,6 +32,7 @@ class _ProfileRouteState extends State<ProfileRoute> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text("Profile"),
       ),
@@ -46,10 +47,8 @@ class _ProfileRouteState extends State<ProfileRoute> {
         child: Center(
           child: Column(
             children: [
-              const SizedBox(height: 50),
               Center(
-                child: Image.asset('assets/img/avatar.png',
-                    fit: BoxFit.cover, height: 175),
+                child: Image.asset('assets/img/avatar.png', fit: BoxFit.cover, height: 175),
               ),
               const SizedBox(height: 16),
               if (_nickName != "")
@@ -57,8 +56,7 @@ class _ProfileRouteState extends State<ProfileRoute> {
                   children: [
                     const Text(
                       "Nick Name",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 4),
                     Padding(
@@ -89,8 +87,7 @@ class _ProfileRouteState extends State<ProfileRoute> {
               ),
               const Spacer(),
               InputField(
-                hintText:
-                    (_nickName == "") ? _authentication.user!.nickname : null,
+                hintText: (_nickName == "") ? _authentication.user!.nickname : null,
                 label: "Nick Name",
                 textEditingController: _nameController,
                 paddingHorizontal: 80,
@@ -102,9 +99,7 @@ class _ProfileRouteState extends State<ProfileRoute> {
                 onTap: () {
                   try {
                     if (_nameController.text != "") {
-                      _authentication
-                          .updateProfile(nickName: _nameController.text)
-                          .then((value) => updateNickName());
+                      _authentication.updateProfile(nickName: _nameController.text).then((value) => updateNickName());
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           backgroundColor: ThemeColors.primary,

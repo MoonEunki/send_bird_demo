@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:sendbird_sdk/core/models/user.dart';
 import 'package:sendbird_sdk/sdk/sendbird_sdk_api.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class BaseAuth {
@@ -27,7 +28,7 @@ abstract class BaseAuth {
 
 class AuthenticationController extends GetxController implements BaseAuth {
   //* Initialize Sendbird Sdk
-  final _sendbird = SendbirdSdk(appId: '앱 아이디');
+  final _sendbird = SendbirdSdk(appId: dotenv.env["APP_ID"]);
   late bool _isSigned;
   late User _user;
   //TODO Include SharedPreference HERE
@@ -46,7 +47,7 @@ class AuthenticationController extends GetxController implements BaseAuth {
         _isSigned = false;
       } else {
         _isSigned = true;
-        _sendbird.connect(_userId, accessToken: '엑세스 토큰');
+        _sendbird.connect(_userId, accessToken: dotenv.env["MASTER_API_TOKEN"]);
       }
     } catch (e) {
       //TODO Create Logger

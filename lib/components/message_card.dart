@@ -8,8 +8,7 @@ class MessageCard extends StatelessWidget {
   final int messageId;
   final String? message;
   final String? userName;
-  MessageCard({Key? key, this.message, this.userName, required this.messageId})
-      : super(key: key);
+  MessageCard({Key? key, this.message, this.userName, required this.messageId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +23,7 @@ class MessageCard extends StatelessWidget {
                   ChatRoomRoute.globalKey.currentState!.refreshPage(),
                 });
           },
-          child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8),
-              child: Icon(Icons.delete)),
+          child: const Padding(padding: EdgeInsets.symmetric(horizontal: 8), child: Icon(Icons.delete)),
         ),
       ),
     );

@@ -173,8 +173,7 @@ class _CreateChannelRouteState extends State<CreateChannelRoute> {
                     paddingHorizontal: 80,
                     trailingIcon: const Icon(Icons.add),
                     trailingFunction: () {
-                      _addUserToList(
-                          UserType.member, _addMemberController.text);
+                      _addUserToList(UserType.member, _addMemberController.text);
                       SchedulerBinding.instance!.addPostFrameCallback((_) {
                         _memberScrollController.animateTo(
                           _memberScrollController.position.maxScrollExtent,
@@ -198,8 +197,7 @@ class _CreateChannelRouteState extends State<CreateChannelRoute> {
                     paddingHorizontal: 80,
                     trailingIcon: const Icon(Icons.add),
                     trailingFunction: () {
-                      _addUserToList(
-                          UserType.moderator, _addModeratorController.text);
+                      _addUserToList(UserType.moderator, _addModeratorController.text);
                       SchedulerBinding.instance!.addPostFrameCallback((_) {
                         _moderatorScrollController.animateTo(
                           _moderatorScrollController.position.maxScrollExtent,
@@ -216,10 +214,7 @@ class _CreateChannelRouteState extends State<CreateChannelRoute> {
               textLabel: "Create Room",
               paddingHorizontal: 50,
               onTap: () {
-                _channel
-                    .createGroupChannel(
-                        userIds: _memberlist, operatorUserIds: _moderatorlist)
-                    .then((_) => Get.back());
+                _channel.createGroupChannel(userIds: _memberlist, operatorUserIds: _moderatorlist).then((_) => Get.back());
               },
             ),
             const SizedBox(

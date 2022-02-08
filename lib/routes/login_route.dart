@@ -26,6 +26,7 @@ class _LoginRouteState extends State<LoginRoute> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: GestureDetector(
         behavior: HitTestBehavior.translucent,
         onTap: () {
@@ -38,8 +39,7 @@ class _LoginRouteState extends State<LoginRoute> {
           child: Column(
             children: [
               const Spacer(),
-              Image.asset('assets/img/SendBirdLogo.png',
-                  fit: BoxFit.cover, height: 350),
+              Image.asset('assets/img/SendBirdLogo.png', fit: BoxFit.cover, height: 350),
               InputField(
                 label: "User ID",
                 textEditingController: _userIdController,

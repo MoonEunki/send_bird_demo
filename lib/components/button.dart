@@ -12,18 +12,7 @@ class Button extends StatelessWidget {
   final Color textColor;
   final bool isButtonEnabled;
 
-  const Button(
-      {Key? key,
-      required this.textLabel,
-      this.onTap,
-      this.height = 52,
-      this.width = double.infinity,
-      this.primaryBackgroundColor = ThemeColors.primary,
-      this.textColor = Colors.white,
-      this.borderRadius = 26,
-      this.paddingHorizontal = 20,
-      this.isButtonEnabled = true})
-      : super(key: key);
+  const Button({Key? key, required this.textLabel, this.onTap, this.height = 52, this.width = double.infinity, this.primaryBackgroundColor = ThemeColors.primary, this.textColor = Colors.white, this.borderRadius = 26, this.paddingHorizontal = 20, this.isButtonEnabled = true}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,10 +29,7 @@ class Button extends StatelessWidget {
               Center(
                 child: Text(
                   textLabel,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText2!
-                      .copyWith(color: textColor, fontWeight: FontWeight.w700),
+                  style: Theme.of(context).textTheme.bodyText2!.copyWith(color: textColor, fontWeight: FontWeight.w700),
                 ),
               ),
             ],

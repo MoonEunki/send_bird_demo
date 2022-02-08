@@ -46,8 +46,7 @@ class _HomeRouteState extends State<HomeRoute> {
         title: const Text("Home"),
         actions: [
           GestureDetector(
-            onTap: () =>
-                Get.toNamed("ProfileRoute")!.then((_) => setState(() {})),
+            onTap: () => Get.toNamed("ProfileRoute")!.then((_) => setState(() {})),
             child: const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               //TODO Include Profile Img Icon
@@ -81,8 +80,7 @@ class _HomeRouteState extends State<HomeRoute> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () =>
-            Get.toNamed("/CreateChannelRoute")!.then((_) => setState(() {})),
+        onPressed: () => Get.toNamed("/CreateChannelRoute")!.then((_) => setState(() {})),
         child: const Icon(Icons.add),
         backgroundColor: ThemeColors.primary,
         splashColor: ThemeColors.primaryLight,

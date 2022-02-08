@@ -43,9 +43,7 @@ class _RootRouteState extends State<RootRoute> {
             },
 
           setState(() {
-            _authStatus = isLoggedIn == true
-                ? AuthStatus.signedIn
-                : AuthStatus.notSignedIn;
+            _authStatus = isLoggedIn == true ? AuthStatus.signedIn : AuthStatus.notSignedIn;
           }),
           print(_authStatus),
         });

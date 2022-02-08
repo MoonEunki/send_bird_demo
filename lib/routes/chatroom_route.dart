@@ -64,8 +64,7 @@ class _ChatRoomRouteState extends State<ChatRoomRoute> {
             Expanded(
               child: FutureBuilder(
                 future: _getMessages(),
-                builder:
-                    (BuildContext context, AsyncSnapshot<dynamic> messages) {
+                builder: (BuildContext context, AsyncSnapshot<dynamic> messages) {
                   if (messages.hasError) {
                     return const Center(
                       child: Text("Unable to retrieve messages :("),
@@ -79,9 +78,10 @@ class _ChatRoomRouteState extends State<ChatRoomRoute> {
                       return ListView.builder(
                           itemCount: messages.data.length,
                           itemBuilder: (context, index) {
+                            print(messages.data[index]);
                             return MessageCard(
                               message: messages.data[index].message,
-                              userName: messages.data[index].sender.nickname,
+                              userName: messages.data[index].sender?.nickname ?? "관리자",
                               messageId: messages.data[index].messageId,
                             );
                           });
